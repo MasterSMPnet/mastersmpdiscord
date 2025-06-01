@@ -2,114 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="8; url=https://discord.com/invite/GXRFA8fx59" />
+  <!-- 3-second delay before redirect -->
+  <meta http-equiv="refresh" content="3; url=https://discord.com/invite/GXRFA8fx59" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MasterSMP | Home</title>
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph & Twitter (no preview image) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MasterSMP | Home" />
   <meta property="og:description" content="A Cracked Minecraft server" />
-  <meta property="og:image" content="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=683d9a87&is=683c4907&hm=b1102beb83cf4085fb606d92c1a74d7410bbd388f3f34ab04597d0965d58ea2f&" />
   <meta property="og:url" content="https://discord.mastersmc.net" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="MasterSMP | Home" />
   <meta name="twitter:description" content="A Cracked Minecraft server" />
-  <meta name="twitter:image" content="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=683d9a87&is=683c4907&hm=b1102beb83cf4085fb606d92c1a74d7410bbd388f3f34ab04597d0965d58ea2f&" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="icon" href="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.ico" />
+
   <style>
+    /* Global reset and font */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Press Start 2P', cursive;
-      background: url('https://wallpapercave.com/wp/wp11029339.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
       overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      color: #ffffff;
+      text-align: center;
     }
 
-    .overlay {
+    /* Animated gradient background */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Dark overlay for contrast */
+    body::before {
+      content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
     .container {
+      position: relative;
       z-index: 1;
       max-width: 90%;
       padding: 20px;
-      animation: fadeInUp 1.5s ease-out;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Fade-in for container */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px #000;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #66ccff;
+      text-shadow: 0 0 10px rgba(102, 204, 255, 0.7);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    /* Simple pulsing effect */
+    @keyframes pulse {
+      0%   { text-shadow: 0 0 5px rgba(102, 204, 255, 0.5); }
+      50%  { text-shadow: 0 0 20px rgba(102, 204, 255, 1); }
+      100% { text-shadow: 0 0 5px rgba(102, 204, 255, 0.5); }
     }
 
     p {
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #b3d9ff;
     }
 
     .button {
-      background: #57f287;
-      color: #000;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      box-shadow: 0 0 10px #57f287;
-      transition: all 0.3s ease;
       display: inline-block;
+      background: #004080;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 6px;
+      box-shadow: 0 0 15px rgba(0, 64, 128, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .button:hover {
-      transform: scale(1.1);
-      background: #43e06c;
-      box-shadow: 0 0 20px #43e06c;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 128, 255, 0.9);
     }
 
     .footer {
-      font-size: 0.7rem;
-      opacity: 0.7;
       margin-top: 2rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      color: #a3bfff;
     }
 
-    @media screen and (max-width: 600px) {
-      h1 { font-size: 1.2rem; }
-      .button { padding: 10px 20px; font-size: 0.8rem; }
+    /* Animated floating particles */
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(102, 204, 255, 0.8);
+      border-radius: 50%;
+      animation: float 4s infinite ease-in-out, fade 4s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0) translateX(0); }
+      50%  { transform: translateY(-40px) translateX(20px); }
+      100% { transform: translateY(0) translateX(-20px); }
+    }
+
+    @keyframes fade {
+      0%, 100% { opacity: 0; }
+      50%      { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
   <div class="container">
-    <h1>Welcome to MastersMP</h1>
-    <p>A unique survival experience. Join our Discord to start your journey!</p>
+    <h1>Welcome to MasterSMP</h1>
+    <p>A Cracked Minecraft server. Redirecting to Discord...</p>
     <a href="https://discord.com/invite/GXRFA8fx59" class="button">Join Discord</a>
-    <div class="footer">Redirecting in a few seconds...</div>
+    <div class="footer">Redirecting in 3 seconds...</div>
   </div>
+
+  <!-- Floating particles -->
+  <script>
+    const count = 25;
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+      // Random start position
+      const startX = Math.random() * window.innerWidth;
+      const startY = Math.random() * window.innerHeight;
+      particle.style.left = `${startX}px`;
+      particle.style.top  = `${startY}px`;
+      // Random animation delay
+      particle.style.animationDelay = `${Math.random() * 4}s`;
+      document.body.appendChild(particle);
+    }
+  </script>
 </body>
 </html>
