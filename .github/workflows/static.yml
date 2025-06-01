@@ -1,6 +1,5 @@
 name: Deploy Static Site to GitHub Pages
 
-# 1) Trigger the workflow on any push to the main branch
 on:
   push:
     branches:
@@ -8,25 +7,20 @@ on:
 
 jobs:
   deploy:
-    # 2) Use the latest Ubuntu runner
     runs-on: ubuntu-latest
 
     steps:
-      # 3) Checkout your repo so GitHub Actions can access the files
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 4) Configure GitHub Pages (no build step needed for plain HTML)
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
-      # 5) Upload everything in the `main/` folder as the Pages artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # point to the directory containing index.html (and any other static files)
-          path: main/
+          # Since index.html is in the root, point to "."
+          path: .
 
-      # 6) Deploy the uploaded artifact to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
