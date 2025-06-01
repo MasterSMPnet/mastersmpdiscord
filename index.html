@@ -13,10 +13,23 @@
       justify-content: center;
       align-items: center;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #5865F2; /* Discord blurple */
+      background: url('https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=683d9a87&is=683c4907&hm=b1102beb83cf4085fb606d92c1a74d7410bbd388f3f34ab04597d0965d58ea2f&') no-repeat center center fixed;
+      background-size: cover;
       color: white;
       flex-direction: column;
       text-align: center;
+      /* Add subtle dark overlay for text readability */
+      position: relative;
+      z-index: 0;
+    }
+
+    /* Overlay for better text contrast */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
     }
 
     h1 {
