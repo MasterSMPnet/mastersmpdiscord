@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- 3-second delay before redirect -->
-  <meta http-equiv="refresh" content="3; url=https://discord.com/invite/GXRFA8fx59" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MasterSMP | Home</title>
 
   <!-- Open Graph & Twitter (no preview image) -->
@@ -20,31 +18,24 @@
   <link rel="icon" href="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.ico" />
 
   <style>
-    /* Global reset and font */
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
+      margin: 0; padding: 0; height: 100%; overflow: hidden;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: flex; justify-content: center; align-items: center;
       background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27);
       background-size: 400% 400%;
       animation: gradientShift 12s ease infinite;
       color: #ffffff;
       text-align: center;
+      position: relative;
     }
 
-    /* Animated gradient background */
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Dark overlay for contrast */
     body::before {
       content: "";
       position: absolute;
@@ -61,10 +52,9 @@
       animation: fadeIn 1.5s ease-out;
     }
 
-    /* Fade-in for container */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -75,10 +65,9 @@
       animation: pulse 2s infinite ease-in-out;
     }
 
-    /* Simple pulsing effect */
     @keyframes pulse {
-      0%   { text-shadow: 0 0 5px rgba(102, 204, 255, 0.5); }
-      50%  { text-shadow: 0 0 20px rgba(102, 204, 255, 1); }
+      0% { text-shadow: 0 0 5px rgba(102, 204, 255, 0.5); }
+      50% { text-shadow: 0 0 20px rgba(102, 204, 255, 1); }
       100% { text-shadow: 0 0 5px rgba(102, 204, 255, 0.5); }
     }
 
@@ -98,6 +87,7 @@
       border-radius: 6px;
       box-shadow: 0 0 15px rgba(0, 64, 128, 0.7);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -107,12 +97,11 @@
 
     .footer {
       margin-top: 2rem;
-      font-size: 0.8rem;
-      opacity: 0.7;
+      font-size: 0.9rem;
+      opacity: 0.8;
       color: #a3bfff;
     }
 
-    /* Animated floating particles */
     .particle {
       position: absolute;
       width: 6px;
@@ -124,14 +113,14 @@
     }
 
     @keyframes float {
-      0%   { transform: translateY(0) translateX(0); }
-      50%  { transform: translateY(-40px) translateX(20px); }
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-40px) translateX(20px); }
       100% { transform: translateY(0) translateX(-20px); }
     }
 
     @keyframes fade {
       0%, 100% { opacity: 0; }
-      50%      { opacity: 1; }
+      50% { opacity: 1; }
     }
   </style>
 </head>
@@ -139,25 +128,49 @@
   <div class="container">
     <h1>Welcome to MasterSMP</h1>
     <p>A Cracked Minecraft server. Redirecting to Discord...</p>
-    <a href="https://discord.com/invite/GXRFA8fx59" class="button">Join Discord</a>
-    <div class="footer">Redirecting in 3 seconds...</div>
+    <a href="discord://discord.com/invite/GXRFA8fx59" class="button" id="joinButton">Accept Invite</a>
+    <div class="footer" id="countdownText">You will be redirected in 3 seconds...</div>
   </div>
 
-  <!-- Floating particles -->
   <script>
+    // Create floating particles
     const count = 25;
     for (let i = 0; i < count; i++) {
       const particle = document.createElement("div");
       particle.classList.add("particle");
-      // Random start position
-      const startX = Math.random() * window.innerWidth;
-      const startY = Math.random() * window.innerHeight;
-      particle.style.left = `${startX}px`;
-      particle.style.top  = `${startY}px`;
-      // Random animation delay
+      particle.style.left = `${Math.random() * window.innerWidth}px`;
+      particle.style.top = `${Math.random() * window.innerHeight}px`;
       particle.style.animationDelay = `${Math.random() * 4}s`;
       document.body.appendChild(particle);
     }
+
+    // Countdown timer logic
+    let secondsLeft = 3;
+    const countdownText = document.getElementById('countdownText');
+    countdownText.textContent = `You will be redirected in ${secondsLeft} seconds...`;
+
+    const interval = setInterval(() => {
+      secondsLeft--;
+      if (secondsLeft > 0) {
+        countdownText.textContent = `You will be redirected in ${secondsLeft} ${secondsLeft === 1 ? 'second' : 'seconds'}...`;
+      } else {
+        clearInterval(interval);
+        countdownText.textContent = 'Redirecting now...';
+      }
+    }, 1000);
+
+    // Redirect logic with fallback
+    window.onload = () => {
+      // Try Discord app protocol redirect after 3s
+      setTimeout(() => {
+        window.location.href = "discord://discord.com/invite/GXRFA8fx59";
+      }, 3000);
+
+      // Fallback to web invite after 5.5s (if app doesn't open)
+      setTimeout(() => {
+        window.location.href = "https://discord.com/invite/GXRFA8fx59";
+      }, 5500);
+    };
   </script>
 </body>
 </html>
