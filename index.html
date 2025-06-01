@@ -2,167 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- 5-second delay to showcase the design -->
-  <meta http-equiv="refresh" content="5; url=https://discord.com/invite/GXRFA8fx59" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redirecting to Discord...</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-    rel="stylesheet"
-  />
+  <meta http-equiv="refresh" content="8; url=https://discord.com/invite/GXRFA8fx59" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MastersMP | Minecraft Server</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <style>
-    /* Apply a pixel‑style font */
-    body,
-    html {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: "Press Start 2P", cursive;
+      font-family: 'Press Start 2P', cursive;
+      background: url('https://wallpapercave.com/wp/wp11029339.jpg') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      color: white;
       text-align: center;
-      color: #ffffff;
-      background: url("https://textures.minecraft.net/texture/blocks_grass_top") repeat;
-      position: relative;
       overflow: hidden;
     }
 
-    /* Dark overlay for contrast */
-    body::before {
-      content: "";
+    .overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
       z-index: 0;
     }
 
-    .content {
+    .container {
       z-index: 1;
-      padding: 20px;
       max-width: 90%;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease-out;
     }
 
     h1 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      /* Simple bounce animation */
-      animation: bounce 1s ease-in-out infinite alternate;
-    }
-
-    @keyframes bounce {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-10px);
-      }
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px #000;
     }
 
     p {
       font-size: 0.9rem;
-      margin-top: 0;
+      margin-bottom: 2rem;
     }
 
-    a {
-      color: #64ffda;
+    .button {
+      background: #57f287;
+      color: #000;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
       text-decoration: none;
+      box-shadow: 0 0 10px #57f287;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .button:hover {
+      transform: scale(1.1);
+      background: #43e06c;
+      box-shadow: 0 0 20px #43e06c;
     }
 
-    /* Minecraft block spinner */
-    .spinner {
-      margin: 20px auto;
-      width: 50px;
-      height: 50px;
-      background: url("https://textures.minecraft.net/texture/blocks_stone") no-repeat
-        center center;
-      background-size: cover;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Tiny floating particle effect */
-    .particle {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      animation: float 3s ease-in-out infinite, fade 3s linear infinite;
-      opacity: 0;
-    }
-
-    @keyframes float {
+    @keyframes fadeInUp {
       from {
-        transform: translate(
-          calc(var(--x) * 1px),
-          calc(var(--y) * 1px)
-        );
+        opacity: 0;
+        transform: translateY(30px);
       }
       to {
-        transform: translate(
-          calc(var(--x) * 1px + var(--dx) * 1px),
-          calc(var(--y) * 1px + var(--dy) * 1px)
-        );
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @keyframes fade {
-      0% {
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
+    .footer {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 1.2rem; }
+      .button { padding: 10px 20px; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Redirecting to Discord...</h1>
-    <div class="spinner" aria-label="Rotating stone block"></div>
-    <p>If you’re not redirected automatically, <a href="https://discord.com/invite/GXRFA8fx59">click here</a>.</p>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Welcome to MastersMP</h1>
+    <p>A unique survival experience. Join our Discord to start your journey!</p>
+    <a href="https://discord.com/invite/GXRFA8fx59" class="button">Join Discord</a>
+    <div class="footer">Redirecting in a few seconds...</div>
   </div>
-
-  <!-- Generate some floating particles -->
-  <script>
-    // Create 20 random particles
-    const particleCount = 20;
-    for (let i = 0; i < particleCount; i++) {
-      const p = document.createElement("div");
-      p.classList.add("particle");
-      // Random starting position
-      const startX = Math.random() * window.innerWidth;
-      const startY = Math.random() * window.innerHeight;
-      // Random drift
-      const dx = (Math.random() - 0.5) * 100;
-      const dy = (Math.random() - 0.5) * 100;
-      p.style.setProperty("--x", startX);
-      p.style.setProperty("--y", startY);
-      p.style.setProperty("--dx", dx);
-      p.style.setProperty("--dy", dy);
-      // Random delay so they don't all animate at once
-      p.style.animationDelay = `${Math.random() * 3}s`;
-      document.body.appendChild(p);
-    }
-  </script>
 </body>
 </html>
