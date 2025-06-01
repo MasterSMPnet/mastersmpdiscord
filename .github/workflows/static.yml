@@ -19,7 +19,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Since index.html is in the root, point to "."
+          # Publish everything in the repo root (including index.html)
           path: .
 
       - name: Deploy to GitHub Pages
