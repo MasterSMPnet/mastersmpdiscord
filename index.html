@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=https://discord.com/invite/GXRFA8fx59" />
-    <title>Redirecting to Discord...</title>
-  </head>
-  <body>
-    <p>If you are not redirected, <a href="https://discord.com/invite/GXRFA8fx59">click here</a>.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="3; url=https://discord.com/invite/GXRFA8fx59" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecting to Discord...</title>
+  <style>
+    /* Center everything */
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #5865F2; /* Discord blurple */
+      color: white;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-top: 0;
+    }
+
+    a {
+      color: #fee75c; /* Discord yellow */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Spinner */
+    .spinner {
+      margin: 2rem auto 1rem;
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fee75c;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Redirecting to Discord...</h1>
+  <div class="spinner" aria-label="Loading spinner"></div>
+  <p>If you are not redirected automatically, <a href="https://discord.com/invite/GXRFA8fx59">click here</a>.</p>
+</body>
 </html>
