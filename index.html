@@ -5,47 +5,50 @@
   <meta http-equiv="refresh" content="3; url=https://discord.com/invite/GXRFA8fx59" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redirecting to Discord...</title>
+  <link rel="icon" href="https://discord.com/favicon.ico" />
   <style>
-    /* Center everything */
-    body, html {
-      margin: 0; padding: 0; height: 100%;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: url('https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=683d9a87&is=683c4907&hm=b1102beb83cf4085fb606d92c1a74d7410bbd388f3f34ab04597d0965d58ea2f&') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      flex-direction: column;
       text-align: center;
-      /* Add subtle dark overlay for text readability */
+      color: white;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
       position: relative;
+    }
+
+    /* Dark overlay for contrast */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
       z-index: 0;
     }
 
-    /* Overlay for better text contrast */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
+    .content {
+      z-index: 1;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     p {
       font-size: 1.1rem;
-      margin-top: 0;
     }
 
     a {
-      color: #fee75c; /* Discord yellow */
-      text-decoration: none;
+      color: #fee75c;
       font-weight: bold;
+      text-decoration: none;
     }
 
     a:hover {
@@ -54,7 +57,7 @@
 
     /* Spinner */
     .spinner {
-      margin: 2rem auto 1rem;
+      margin: 20px auto 10px;
       width: 50px;
       height: 50px;
       border: 5px solid rgba(255, 255, 255, 0.3);
@@ -69,8 +72,10 @@
   </style>
 </head>
 <body>
-  <h1>Redirecting to Discord...</h1>
-  <div class="spinner" aria-label="Loading spinner"></div>
-  <p>If you are not redirected automatically, <a href="https://discord.com/invite/GXRFA8fx59">click here</a>.</p>
+  <div class="content">
+    <h1>Redirecting to Discord...</h1>
+    <div class="spinner" aria-label="Loading spinner"></div>
+    <p>If you are not redirected automatically, <a href="https://discord.com/invite/GXRFA8fx59">click here</a>.</p>
+  </div>
 </body>
 </html>
