@@ -1,50 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MasterSMP | Home</title>
-
-  <!-- Open Graph & Twitter (no preview image) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="MasterSMP | Home" />
-  <meta property="og:description" content="A Cracked Minecraft server" />
-  <meta property="og:url" content="https://discord.mastersmc.net" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MasterSMP | Home" />
-  <meta name="twitter:description" content="A Cracked Minecraft server" />
-
-  <link rel="icon" href="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.ico" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MasterSMP | Home">
+  <meta property="og:description" content="A Cracked Minecraft server">
+  <meta property="og:url" content="https://discord.mastersmc.net">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.ico">
 
   <style>
-    /* Ensure full-height for both html and body */
+    /* Ensure full viewport for html and body */
     html, body {
       margin: 0;
       padding: 0;
       height: 100vh;
+      width: 100vw;
       overflow: hidden;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
     }
 
-    /* Animated gradient background with vendor prefixes */
+    /* Animated gradient covering entire viewport */
     body {
-      background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27);
+      background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27) no-repeat center center;
       background-size: 400% 400%;
-      -webkit-animation: gradientShift 12s ease infinite;
       animation: gradientShift 12s ease infinite;
-      color: #ffffff;
+      position: relative;
+      color: #fff;
       text-align: center;
-    }
-
-    @-webkit-keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
@@ -52,30 +37,34 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Overlay for contrast */
+    /* Dark overlay full screen */
     body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
+    /* Center content */
     .container {
       position: relative;
       z-index: 1;
-      max-width: 90%;
-      padding: 20px;
-      animation: fadeIn 1.5s ease-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
     }
 
+    /* Fade-in animation for container */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .container { animation: fadeIn 1.5s ease-out; }
 
     h1 {
       font-size: 2rem;
@@ -84,61 +73,41 @@
       text-shadow: 0 0 10px rgba(102, 204, 255, 0.7);
       animation: pulse 2s infinite ease-in-out;
     }
-
     @keyframes pulse {
-      0% { text-shadow: 0 0 5px rgba(102, 204, 255, 0.5); }
-      50% { text-shadow: 0 0 20px rgba(102, 204, 255, 1); }
-      100% { text-shadow: 0 0 5px rgba(102, 204, 255, 0.5); }
+      0% { text-shadow: 0 0 5px rgba(102,204,255,0.5); }
+      50% { text-shadow: 0 0 20px rgba(102,204,255,1); }
+      100% { text-shadow: 0 0 5px rgba(102,204,255,0.5); }
     }
 
-    p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      color: #b3d9ff;
-    }
-
+    p { font-size: 1rem; margin-bottom: 1.5rem; color: #b3d9ff; }
     .button {
-      display: inline-block;
       background: #004080;
       color: #fff;
       padding: 15px 30px;
       font-size: 1rem;
       text-decoration: none;
       border-radius: 6px;
-      box-shadow: 0 0 15px rgba(0, 64, 128, 0.7);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,64,128,0.7);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+    .button:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0,128,255,0.9); }
+    .footer { margin-top: 2rem; font-size: 0.9rem; opacity: 0.8; color: #a3bfff; }
 
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(0, 128, 255, 0.9);
-    }
-
-    .footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
-      color: #a3bfff;
-    }
-
-    /* Particle styles unchanged */
+    /* Particle styling */
     .particle {
       position: absolute;
       width: 6px;
       height: 6px;
-      background: rgba(102, 204, 255, 0.8);
+      background: rgba(102,204,255,0.8);
       border-radius: 50%;
       animation: float 4s infinite ease-in-out, fade 4s infinite ease-in-out;
       z-index: 0;
     }
-
     @keyframes float {
       0% { transform: translateY(0) translateX(0); }
       50% { transform: translateY(-40px) translateX(20px); }
       100% { transform: translateY(0) translateX(-20px); }
     }
-
     @keyframes fade {
       0%, 100% { opacity: 0; }
       50% { opacity: 1; }
@@ -149,41 +118,32 @@
   <div class="container">
     <h1>Welcome to MasterSMP</h1>
     <p>A Cracked Minecraft server. Redirecting to Discord...</p>
-    <a href="discord://discord.com/invite/GXRFA8fx59" class="button" id="joinButton">Accept Invite</a>
+    <a href="discord://discord.com/invite/GXRFA8fx59" class="button">Accept Invite</a>
     <div class="footer" id="countdownText">You will be redirected in 3 seconds...</div>
   </div>
 
   <script>
-    // Create floating particles after load
     window.addEventListener('load', () => {
-      const count = 25;
-      for (let i = 0; i < count; i++) {
-        const particle = document.createElement("div");
-        particle.classList.add("particle");
-        particle.style.left = `${Math.random() * window.innerWidth}px`;
-        particle.style.top = `${Math.random() * window.innerHeight}px`;
-        particle.style.animationDelay = `${Math.random() * 4}s`;
-        document.body.appendChild(particle);
+      // Create particles
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * window.innerWidth + 'px';
+        p.style.top = Math.random() * window.innerHeight + 'px';
+        p.style.animationDelay = Math.random() * 4 + 's';
+        document.body.appendChild(p);
       }
-
-      // Countdown & redirect
-      let secondsLeft = 3;
-      const countdownText = document.getElementById('countdownText');
-      countdownText.textContent = `You will be redirected in ${secondsLeft} seconds...`;
-
+      // Countdown
+      let seconds = 3;
+      const text = document.getElementById('countdownText');
       const interval = setInterval(() => {
-        secondsLeft--;
-        if (secondsLeft > 0) {
-          countdownText.textContent = `You will be redirected in ${secondsLeft} ${secondsLeft === 1 ? 'second' : 'seconds'}...`;
-        } else {
-          clearInterval(interval);
-          countdownText.textContent = 'Redirecting now...';
-        }
+        seconds--;
+        if (seconds > 0) text.textContent = `You will be redirected in ${seconds} ${seconds === 1 ? 'second' : 'seconds'}...`;
+        else { clearInterval(interval); text.textContent = 'Redirecting now...'; }
       }, 1000);
-
-      // Protocol + fallback redirects
-      setTimeout(() => window.location.href = "discord://discord.com/invite/GXRFA8fx59", 3000);
-      setTimeout(() => window.location.href = "https://discord.com/invite/GXRFA8fx59", 5500);
+      // Redirects
+      setTimeout(() => location.href = 'discord://discord.com/invite/GXRFA8fx59', 3000);
+      setTimeout(() => location.href = 'https://discord.com/invite/GXRFA8fx59', 5500);
     });
   </script>
 </body>
