@@ -18,28 +18,48 @@
   <link rel="icon" href="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.ico" />
 
   <style>
+    /* Ensure full-height for both html and body */
     html, body {
-      margin: 0; padding: 0; height: 100%; overflow: hidden;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex; justify-content: center; align-items: center;
-      background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-      color: #ffffff;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
     }
 
+    /* Animated gradient background with vendor prefixes */
+    body {
+      background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27);
+      background-size: 400% 400%;
+      -webkit-animation: gradientShift 12s ease infinite;
+      animation: gradientShift 12s ease infinite;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    @-webkit-keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
+    /* Overlay for contrast */
     body::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
@@ -102,6 +122,7 @@
       color: #a3bfff;
     }
 
+    /* Particle styles unchanged */
     .particle {
       position: absolute;
       width: 6px;
@@ -133,44 +154,37 @@
   </div>
 
   <script>
-    // Create floating particles
-    const count = 25;
-    for (let i = 0; i < count; i++) {
-      const particle = document.createElement("div");
-      particle.classList.add("particle");
-      particle.style.left = `${Math.random() * window.innerWidth}px`;
-      particle.style.top = `${Math.random() * window.innerHeight}px`;
-      particle.style.animationDelay = `${Math.random() * 4}s`;
-      document.body.appendChild(particle);
-    }
-
-    // Countdown timer logic
-    let secondsLeft = 3;
-    const countdownText = document.getElementById('countdownText');
-    countdownText.textContent = `You will be redirected in ${secondsLeft} seconds...`;
-
-    const interval = setInterval(() => {
-      secondsLeft--;
-      if (secondsLeft > 0) {
-        countdownText.textContent = `You will be redirected in ${secondsLeft} ${secondsLeft === 1 ? 'second' : 'seconds'}...`;
-      } else {
-        clearInterval(interval);
-        countdownText.textContent = 'Redirecting now...';
+    // Create floating particles after load
+    window.addEventListener('load', () => {
+      const count = 25;
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.left = `${Math.random() * window.innerWidth}px`;
+        particle.style.top = `${Math.random() * window.innerHeight}px`;
+        particle.style.animationDelay = `${Math.random() * 4}s`;
+        document.body.appendChild(particle);
       }
-    }, 1000);
 
-    // Redirect logic with fallback
-    window.onload = () => {
-      // Try Discord app protocol redirect after 3s
-      setTimeout(() => {
-        window.location.href = "discord://discord.com/invite/GXRFA8fx59";
-      }, 3000);
+      // Countdown & redirect
+      let secondsLeft = 3;
+      const countdownText = document.getElementById('countdownText');
+      countdownText.textContent = `You will be redirected in ${secondsLeft} seconds...`;
 
-      // Fallback to web invite after 5.5s (if app doesn't open)
-      setTimeout(() => {
-        window.location.href = "https://discord.com/invite/GXRFA8fx59";
-      }, 5500);
-    };
+      const interval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          countdownText.textContent = `You will be redirected in ${secondsLeft} ${secondsLeft === 1 ? 'second' : 'seconds'}...`;
+        } else {
+          clearInterval(interval);
+          countdownText.textContent = 'Redirecting now...';
+        }
+      }, 1000);
+
+      // Protocol + fallback redirects
+      setTimeout(() => window.location.href = "discord://discord.com/invite/GXRFA8fx59", 3000);
+      setTimeout(() => window.location.href = "https://discord.com/invite/GXRFA8fx59", 5500);
+    });
   </script>
 </body>
 </html>
