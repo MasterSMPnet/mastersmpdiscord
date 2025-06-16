@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MasterSMP | Home</title>
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="MasterSMP | Home">
-  <meta property="og:description" content="A Cracked Minecraft server">
-  <meta property="og:url" content="https://discord.mastersmc.net">
-  <meta name="twitter:card" content="summary">
-  <link rel="icon" href="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.ico">
+
+  <!-- Meta tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MasterSMP | Home" />
+  <meta property="og:description" content="A Cracked Minecraft server" />
+  <meta property="og:url" content="https://discord.mastersmc.net" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="https://discord.com/assets/2c21aeda16de354ba5334551a883b481.ico" />
 
   <style>
-    /* Ensure full viewport for html and body */
+    /* Reset and full viewport */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      width: 100vw;
+      height: 100%;
+      width: 100%;
       overflow: hidden;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* Animated gradient covering entire viewport */
+    /* Animated gradient background fixed to viewport */
     body {
-      background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27) no-repeat center center;
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
       position: relative;
+      background: linear-gradient(135deg, #0a0f27, #001f4d, #0a0f27);
+      background-size: 400% 400%;
+      background-attachment: fixed;
+      animation: gradientShift 12s ease infinite;
       color: #fff;
       text-align: center;
     }
@@ -42,13 +44,13 @@
       content: '';
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
 
-    /* Center content */
+    /* Center content flexibly */
     .container {
       position: relative;
       z-index: 1;
@@ -57,15 +59,15 @@
       justify-content: center;
       align-items: center;
       height: 100%;
+      padding: 20px;
+      animation: fadeIn 1.5s ease-out;
     }
-
-    /* Fade-in animation for container */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .container { animation: fadeIn 1.5s ease-out; }
 
+    /* Text and button styles */
     h1 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
@@ -89,9 +91,18 @@
       border-radius: 6px;
       box-shadow: 0 0 15px rgba(0,64,128,0.7);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
     }
-    .button:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0,128,255,0.9); }
-    .footer { margin-top: 2rem; font-size: 0.9rem; opacity: 0.8; color: #a3bfff; }
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,128,255,0.9);
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      color: #a3bfff;
+    }
 
     /* Particle styling */
     .particle {
@@ -104,9 +115,9 @@
       z-index: 0;
     }
     @keyframes float {
-      0% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-40px) translateX(20px); }
-      100% { transform: translateY(0) translateX(-20px); }
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(20px, -40px); }
+      100% { transform: translate(-20px, 0); }
     }
     @keyframes fade {
       0%, 100% { opacity: 0; }
@@ -124,7 +135,7 @@
 
   <script>
     window.addEventListener('load', () => {
-      // Create particles
+      // Generate particles
       for (let i = 0; i < 25; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
@@ -133,14 +144,20 @@
         p.style.animationDelay = Math.random() * 4 + 's';
         document.body.appendChild(p);
       }
+
       // Countdown
       let seconds = 3;
       const text = document.getElementById('countdownText');
       const interval = setInterval(() => {
         seconds--;
-        if (seconds > 0) text.textContent = `You will be redirected in ${seconds} ${seconds === 1 ? 'second' : 'seconds'}...`;
-        else { clearInterval(interval); text.textContent = 'Redirecting now...'; }
+        if (seconds > 0) {
+          text.textContent = `You will be redirected in ${seconds} ${seconds === 1 ? 'second' : 'seconds'}...`;
+        } else {
+          clearInterval(interval);
+          text.textContent = 'Redirecting now...';
+        }
       }, 1000);
+
       // Redirects
       setTimeout(() => location.href = 'discord://discord.com/invite/GXRFA8fx59', 3000);
       setTimeout(() => location.href = 'https://discord.com/invite/GXRFA8fx59', 5500);
