@@ -2,32 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Master SMP Store</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/favicon.png" type="image/png"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MasterSMP | Welcome</title>
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
 
   <style>
-    /* ---------- RESET & BASE ---------- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Press Start 2P', monospace;
       background: #111;
       color: #eee;
+      text-align: center;
       line-height: 1.4;
     }
-    a { text-decoration: none; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    section { padding: 60px 20px; }
 
-    /* ---------- HEADER ---------- */
     header {
-      text-align: center;
-      padding: 40px 20px;
+      padding: 80px 20px 40px;
     }
-    header img.logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 16px;
+    header img {
+      width: 140px;
+      margin-bottom: 20px;
     }
     #copy-btn {
       display: inline-block;
@@ -36,62 +32,71 @@
       padding: 12px 24px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
       user-select: none;
+      font-size: 14px;
     }
     #copy-btn:active { transform: translateY(1px); }
 
-    /* ---------- PACKAGES GRID ---------- */
-    .package-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-      gap: 24px;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+    #store {
+      background: #1e1e1e;
+      border-radius: 16px;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .package-item {
-      background: #222;
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    .package-item img {
+    #store img {
       width: 100%;
-      max-width: 160px;
-      border-radius: 8px;
-      margin-bottom: 16px;
+      border-radius: 16px;
+      display: block;
     }
-    .package-item h2 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-    .package-item .price {
-      font-size: 16px;
-      color: #aaa;
-      margin-bottom: 16px;
-    }
-    .package-item button {
-      background: #fea500;
-      color: #111;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .package-item button:active { transform: translateY(1px); }
 
-    /* ---------- FOOTER ---------- */
+    #discord {
+      margin-top: 40px;
+    }
+    #discord img {
+      width: 60px;
+      display: block;
+      margin: 0 auto 16px;
+    }
+    #discord .count {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #join {
+      background: #1e1e1e;
+      border-radius: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    #join h2 {
+      margin-bottom: 20px;
+    }
+    #join .field {
+      margin: 16px 0;
+      text-align: left;
+    }
+    #join label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: #aaa;
+    }
+    #join .input {
+      width: 100%;
+      padding: 12px;
+      background: #111;
+      border: 2px solid #036fff;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 16px;
+      color: #fff;
+    }
+
     footer {
-      text-align: center;
-      padding: 30px 20px;
       font-size: 12px;
       color: #666;
+      padding: 40px 20px;
     }
     footer .links a {
       margin: 0 8px;
@@ -102,39 +107,44 @@
       color: #444;
     }
 
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 480px) {
-      #copy-btn { width: 100%; box-sizing: border-box; }
+      #copy-btn { width: 100%; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- HEADER: LOGO + COPY DOMAIN -->
+  <!-- HEADER -->
   <header>
-    <img class="logo" src="assets/logo.png" alt="Master SMP Logo"/>
+    <img src="assets/logo.png" alt="MasterSMP Logo">
     <div id="copy-btn" data-text="mastersmc.net">COPY mastersmc.net</div>
   </header>
 
-  <!-- PACKAGE GRID -->
-  <section class="package-wrapper">
-    <!-- Example Package 1 -->
-    <div class="package-item">
-      <img src="assets/pkg-legendary.png" alt="Legendary Rank"/>
-      <h2>Legendary Rank</h2>
-      <div class="price">$19.99</div>
-      <button>Buy Now</button>
-    </div>
+  <!-- STORE SECTION -->
+  <section id="store">
+    <a href="https://store.mastersmc.net" target="_blank">
+      <img src="assets/store-preview.jpg" alt="Store Preview">
+    </a>
+  </section>
 
-    <!-- Example Package 2 -->
-    <div class="package-item">
-      <img src="assets/pkg-elite.png" alt="Elite Rank"/>
-      <h2>Elite Rank</h2>
-      <div class="price">$9.99</div>
-      <button>Buy Now</button>
-    </div>
+  <!-- DISCORD SECTION -->
+  <section id="discord">
+    <img src="assets/discord-icon.png" alt="Discord Icon">
+    <div class="count" id="discord-count">Loading...</div>
+  </section>
 
-    <!-- Add more .package-item blocks as needed -->
+  <!-- HOW TO JOIN SECTION -->
+  <section id="join">
+    <h2>How To Join</h2>
+    <div class="field">
+      <label>Server Name</label>
+      <input class="input" type="text" value="Master SMP_" readonly>
+    </div>
+    <div class="field">
+      <label>Server Address</label>
+      <input class="input" type="text" value="mastersmc.net" readonly>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -145,18 +155,35 @@
       <a href="/terms">Terms of Service</a>|
       <a href="/refund">Refund Policy</a>
     </div>
-    <div class="small">© Master SMP — Not affiliated with Mojang or Microsoft</div>
+    <div class="small">© MasterSMP — Not affiliated with Mojang or Microsoft</div>
   </footer>
 
-  <!-- COPY-TO-CLIPBOARD SCRIPT -->
+  <!-- JS: Copy & Discord Count -->
   <script>
+    // Copy to clipboard
     document.getElementById('copy-btn').addEventListener('click', function(){
-      const text = this.getAttribute('data-text');
-      navigator.clipboard.writeText(text).then(() => {
+      const txt = this.getAttribute('data-text');
+      navigator.clipboard.writeText(txt).then(()=>{
         this.textContent = 'COPIED!';
-        setTimeout(() => this.textContent = 'COPY ' + text.toUpperCase(), 2000);
+        setTimeout(() => this.textContent = 'COPY ' + txt.toUpperCase(), 2000);
       });
     });
+
+    // Discord live member count (requires widget enabled)
+    const DISCORD_ID = '1254535919306801243';
+    fetch(`https://discord.com/api/guilds/${DISCORD_ID}/widget.json`)
+      .then(res => {
+        if (!res.ok) throw new Error("Widget not enabled");
+        return res.json();
+      })
+      .then(data => {
+        const count = data.presence_count || data.members.length;
+        document.getElementById('discord-count').textContent = `${count.toLocaleString()} Members Online`;
+      })
+      .catch(err => {
+        console.error('Failed to fetch Discord widget:', err);
+        document.getElementById('discord-count').textContent = 'Unable to load';
+      });
   </script>
 </body>
 </html>
