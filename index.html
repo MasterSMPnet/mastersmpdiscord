@@ -14,33 +14,18 @@
       color: #eee;
       text-align: center;
       line-height: 1.4;
-      position: relative;
-      min-height: 100vh;
-      padding-bottom: 140px; /* space for footer */
     }
-    a {
-      color: #0384fc; /* bright blue */
-      text-decoration: none;
-      cursor: pointer;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: inherit; text-decoration: none; }
     section { padding: 60px 20px; }
-
     header {
       padding: 80px 20px 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
     }
-    header img#logo {
-      width: 150px;
-      height: 150px;
+    header img.logo {
+      width: 345px;
+      border-radius: 18px;
       object-fit: cover;
-      border-radius: 0; /* square, no rounded edges */
-      border: none;
+      user-select: none;
+      margin-bottom: 24px;
     }
     #copy-btn {
       display: inline-block;
@@ -51,36 +36,23 @@
       cursor: pointer;
       user-select: none;
       font-size: 14px;
-      transition: text-decoration 0.3s ease;
-    }
-    #copy-btn:hover {
-      text-decoration: underline;
     }
     #copy-btn:active { transform: translateY(1px); }
-
     #store {
       background: transparent;
-      border-radius: 16px;
       max-width: 800px;
       margin: 0 auto;
     }
     #store a {
       display: inline-block;
-      width: 100%;
-      max-width: 800px;
-      border-radius: 16px;
-      overflow: hidden;
       cursor: pointer;
     }
     #store img {
-      width: 110%;
-      max-width: none;
-      display: block;
+      width: 104%;
       border-radius: 16px;
+      display: block;
       user-select: none;
-      pointer-events: none;
     }
-
     #discord {
       margin-top: 40px;
     }
@@ -92,8 +64,9 @@
     #discord .count {
       font-size: 24px;
       font-weight: bold;
+      color: #eee;
+      margin-top: 12px;
     }
-
     #join {
       background: #1e1e1e;
       border-radius: 16px;
@@ -125,127 +98,69 @@
       color: #fff;
       cursor: pointer;
     }
-
     footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #1e1e1e;
-      padding: 20px 20px 60px;
-      color: #888;
-      font-size: 12px;
+      padding: 40px 20px 20px;
+      color: #666;
       user-select: none;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.7);
-      text-align: center;
+    }
+    footer img.footer-logo {
+      width: 138px;
+      height: 138px;
+      object-fit: contain;
+      margin: 0 auto 8px;
+      border-radius: 12px;
+      display: block;
+      pointer-events: none;
+    }
+    footer .master-title {
+      font-weight: bold;
+      font-size: 18px;
+      color: #036fff;
+      margin-bottom: 4px;
+    }
+    footer .disclaimer {
+      font-size: 12px;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    footer .links {
+      font-size: 12px;
+      color: #036fff;
+      font-weight: bold;
     }
     footer .links a {
       margin: 0 8px;
-      color: #0384fc;
-      font-weight: 600;
-    }
-    footer .links a:hover {
+      cursor: pointer;
       text-decoration: underline;
     }
-    footer .small {
-      margin-top: 12px;
-      color: #444;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
+    footer .links a:hover {
+      color: #024abb;
     }
-    footer .small img {
-      height: 30px;
-      width: 30px;
-      object-fit: contain;
-      border-radius: 0;
-    }
-
-    /* Modal overlay */
-    #modal-overlay {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(3px);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    #modal-content {
-      background: #222;
-      padding: 24px 32px;
-      max-width: 400px;
-      border-radius: 12px;
-      color: #eee;
-      font-family: 'Press Start 2P', monospace;
-      text-align: left;
-      position: relative;
-    }
-    #modal-content h3 {
-      margin-bottom: 16px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #0384fc;
-    }
-    #modal-content p {
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 24px;
-    }
-    #modal-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: transparent;
-      border: none;
-      color: #888;
-      font-size: 24px;
-      cursor: pointer;
-      font-weight: bold;
-      line-height: 1;
-    }
-    #modal-close:hover {
-      color: #0384fc;
-    }
-
     @media (max-width: 480px) {
       #copy-btn { width: 100%; }
-      header img#logo { width: 120px; height: 120px; }
+      header img.logo { width: 90%; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header>
-    <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=68876e87&is=68861d07&hm=a6e161af284f681090bfc7c0ce8f119a93467517958bd1ccee10220ee566aa0f&" 
-         alt="MasterSMP Logo" id="logo">
+    <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=68876e87&is=68861d07&hm=a6e161af284f681090bfc7c0ce8f119a93467517958bd1ccee10220ee566aa0f&" alt="MasterSMP Logo" class="logo">
     <div id="copy-btn" data-text="mastersmc.net">mastersmc.net</div>
   </header>
 
-  <!-- STORE SECTION -->
   <section id="store">
-    <a href="https://store.mastersmc.net" target="_blank" rel="noopener noreferrer" aria-label="Go to MasterSMP Store">
-      <img src="https://cdn.discordapp.com/attachments/1253669775406792754/1399172716669436084/IMG_0744.png?ex=688808a3&is=6886b723&hm=076bde4b5506c855017747d7dd97108406292dba0ac21d9df7a8fb3cdffc941e&" alt="Store Preview" />
+    <a href="https://store.mastersmc.net" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn.discordapp.com/attachments/1253669775406792754/1399172716669436084/IMG_0744.png?ex=688808a3&is=6886b723&hm=076bde4b5506c855017747d7dd97108406292dba0ac21d9df7a8fb3cdffc941e&" alt="Store Preview">
     </a>
   </section>
 
-  <!-- DISCORD SECTION -->
   <section id="discord">
-    <img src="assets/discord-icon.png" alt="Discord Icon">
+    <img src="assets/discord-icon.png" alt="Discord Icon" />
     <div class="count" id="discord-count">Loading...</div>
   </section>
 
-  <!-- HOW TO JOIN SECTION -->
   <section id="join">
     <h2>How To Join</h2>
     <div class="field">
@@ -258,57 +173,27 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
+    <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=68876e87&is=68861d07&hm=a6e161af284f681090bfc7c0ce8f119a93467517958bd1ccee10220ee566aa0f&" alt="MasterSMP Logo" class="footer-logo" />
+    <div class="master-title">Master SMP</div>
+    <div class="disclaimer">Not affiliated with Mojang or Microsoft</div>
     <div class="links">
-      <a href="#" data-modal="privacy">Privacy Policy</a>|
-      <a href="#" data-modal="support">Support</a>|
-      <a href="#" data-modal="terms">Terms of Service</a>|
-      <a href="#" data-modal="refund">Refund Policy</a>
-    </div>
-    <div class="small">
-      <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png?ex=68876e87&is=68861d07&hm=a6e161af284f681090bfc7c0ce8f119a93467517958bd1ccee10220ee566aa0f&" alt="MasterSMP Logo Small" />
-      <span>Master SMP</span>
+      <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>|
+      <a href="#" id="support-link">Support</a>|
+      <a href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>|
+      <a href="/refund" target="_blank" rel="noopener noreferrer">Refund Policy</a>
     </div>
   </footer>
 
-  <!-- MODAL -->
-  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div id="modal-content">
-      <button id="modal-close" aria-label="Close modal">&times;</button>
-      <h3 id="modal-title"></h3>
-      <div id="modal-body"></div>
-    </div>
-  </div>
-
-  <!-- JS: Copy Button, Discord Count, Input Click Copy, Modal -->
   <script>
-    // Copy domain button
     document.getElementById('copy-btn').addEventListener('click', function(){
       const txt = this.getAttribute('data-text');
-      navigator.clipboard.writeText(txt).then(() => {
+      navigator.clipboard.writeText(txt).then(()=>{
         this.textContent = 'COPIED!';
         setTimeout(() => this.textContent = txt, 2000);
       });
     });
 
-    // Discord member count
-    const DISCORD_ID = '1254535919306801243';
-    fetch(`https://discord.com/api/guilds/${DISCORD_ID}/widget.json`)
-      .then(res => {
-        if (!res.ok) throw new Error("Widget not enabled");
-        return res.json();
-      })
-      .then(data => {
-        const count = data.presence_count || data.members.length;
-        document.getElementById('discord-count').textContent = `${count.toLocaleString()} Members Online`;
-      })
-      .catch(err => {
-        console.error('Failed to fetch Discord widget:', err);
-        document.getElementById('discord-count').textContent = 'Unable to load';
-      });
-
-    // Auto-copy input values on click
     document.querySelectorAll('.copy-field').forEach(input => {
       input.addEventListener('click', () => {
         const value = input.dataset.copy;
@@ -319,62 +204,25 @@
       });
     });
 
-    // Modal logic
-    const modalOverlay = document.getElementById('modal-overlay');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-    const modalCloseBtn = document.getElementById('modal-close');
-
-    const modalContent = {
-      privacy: {
-        title: "Privacy Policy",
-        body: `<p>This is a placeholder Privacy Policy content. Please update with your actual policy.</p>`
-      },
-      support: {
-        title: "Support",
-        body: `<p>Email us at: <a href="mailto:support@mastersmc.net" style="color:#0384fc; text-decoration:underline;">support@mastersmc.net</a></p>`
-      },
-      terms: {
-        title: "Terms of Service",
-        body: `<p>This is a placeholder Terms of Service content. Please update with your actual terms.</p>`
-      },
-      refund: {
-        title: "Refund Policy",
-        body: `<p>This is a placeholder Refund Policy content. Please update with your actual refund policy.</p>`
-      }
-    };
-
-    document.querySelectorAll('footer .links a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const modalKey = link.getAttribute('data-modal');
-        if(modalContent[modalKey]) {
-          modalTitle.innerHTML = modalContent[modalKey].title;
-          modalBody.innerHTML = modalContent[modalKey].body;
-          modalOverlay.style.display = 'flex';
-          // Focus on close button for accessibility
-          modalCloseBtn.focus();
-        }
+    const DISCORD_ID = '1254535919306801243';
+    fetch(`https://discord.com/api/guilds/${DISCORD_ID}/widget.json`)
+      .then(res => {
+        if (!res.ok) throw new Error("Widget not enabled or private");
+        return res.json();
+      })
+      .then(data => {
+        const count = data.presence_count || (data.members && data.members.length) || 0;
+        document.getElementById('discord-count').textContent = `${count.toLocaleString()} Members Online`;
+      })
+      .catch(() => {
+        document.getElementById('discord-count').textContent = 'Discord server info unavailable';
       });
-    });
 
-    modalCloseBtn.addEventListener('click', () => {
-      modalOverlay.style.display = 'none';
-    });
-
-    // Close modal on clicking outside content
-    modalOverlay.addEventListener('click', e => {
-      if (e.target === modalOverlay) {
-        modalOverlay.style.display = 'none';
-      }
-    });
-
-    // Close modal with ESC key
-    document.addEventListener('keydown', e => {
-      if(e.key === 'Escape' && modalOverlay.style.display === 'flex') {
-        modalOverlay.style.display = 'none';
-      }
+    document.getElementById('support-link').addEventListener('click', e => {
+      e.preventDefault();
+      alert('Support\nsupport@mastersmc.net');
     });
   </script>
+
 </body>
 </html>
