@@ -1,6 +1,3 @@
-# Prepare updated HTML string with requested changes
-
-html_code = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +20,7 @@ html_code = """
       padding: 60px 20px 30px;
     }
     header img.logo {
-      width: 300px;
+      width: 260px;
       border-radius: 18px;
       object-fit: cover;
       user-select: none;
@@ -45,19 +42,19 @@ html_code = """
     #store {
       background: transparent;
       max-width: 800px;
-      margin: 0 auto 40px;
+      margin: 0 auto 20px;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: flex-start;
     }
-    #store a {
+    #store .store-wrapper {
+      position: relative;
       display: inline-block;
       cursor: pointer;
-      position: relative;
     }
     #store img {
-      width: 104%;
+      width: 100%;
       max-width: 800px;
       border-radius: 16px;
       display: block;
@@ -137,45 +134,43 @@ html_code = """
     footer .master-title {
       font-weight: bold;
       font-size: 14px;
-      color: #036fff;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
-    footer .disclaimer {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 16px;
+    footer .note {
+      color: #aaa;
+      font-size: 11px;
+      margin-bottom: 10px;
+      font-style: italic;
     }
-    footer .links {
-      font-size: 12px;
-      color: #036fff;
-      font-weight: bold;
+    footer .footer-links {
+      font-size: 13px;
+      color: #0384fc;
+      font-weight: 600;
     }
-    footer .links a {
-      margin: 0 8px;
+    footer .footer-links a {
+      color: #0384fc;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 6px;
+      cursor: pointer;
+    }
+    footer .footer-links a:hover {
       text-decoration: underline;
-    }
-    footer .links a:hover {
-      color: #024abb;
-    }
-    @media (max-width: 480px) {
-      #copy-btn { width: 100%; }
-      header img.logo { width: 85%; }
-      #store img { width: 100%; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png" alt="MasterSMP Logo" class="logo" onclick="window.open('https://mastersmc.net', '_blank')" />
+    <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png" class="logo" alt="MasterSMP Logo" onclick="window.location.href='https://mastersmc.net'" />
     <div id="copy-btn" data-text="mastersmc.net">mastersmc.net</div>
   </header>
 
   <section id="store">
-    <a onclick="window.open('https://store.mastersmc.net', '_blank')">
-      <span class="store-label">STORE</span>
-      <img src="https://cdn.discordapp.com/attachments/1253669775406792754/1399172716669436084/IMG_0744.png" alt="Store Preview">
-    </a>
+    <div class="store-wrapper" onclick="window.open('https://store.mastersmc.net', '_blank')">
+      <div class="store-label">STORE</div>
+      <img src="https://cdn.discordapp.com/attachments/1253669775406792754/1399172716669436084/IMG_0744.png" alt="Store Preview" />
+    </div>
   </section>
 
   <section id="discord">
@@ -196,14 +191,14 @@ html_code = """
   </section>
 
   <footer>
-    <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png" alt="MasterSMP Logo" class="footer-logo" />
+    <img src="https://cdn.discordapp.com/attachments/1350165984056578162/1378713523529715844/minecraft_title.png" class="footer-logo" alt="Footer Logo" />
     <div class="master-title">Master SMP</div>
-    <div class="disclaimer">Not affiliated with Mojang or Microsoft</div>
-    <div class="links">
-      <a onclick="openModal('privacy')">Privacy Policy</a> |
-      <a onclick="openModal('support')">Support</a> |
-      <a onclick="openModal('terms')">Terms of Service</a> |
-      <a onclick="openModal('refund')">Refund Policy</a>
+    <div class="note">Not associated with Mojang or Microsoft</div>
+    <div class="footer-links">
+      <a href="/privacy" target="_blank">PRIVACY POLICY</a> |
+      <a href="/support" target="_blank">SUPPORT</a> |
+      <a href="/terms" target="_blank">TERMS OF SERVICE</a> |
+      <a href="/refund" target="_blank">REFUND POLICY</a>
     </div>
   </footer>
 
@@ -229,6 +224,3 @@ html_code = """
 
 </body>
 </html>
-"""
-
-html_code[:3000]  # Truncate for preview if needed
